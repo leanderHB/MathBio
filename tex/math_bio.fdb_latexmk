@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex MNS_report"] 1702557391 "MNS_report.aux" "MNS_report.bbl" "MNS_report" 1702565202 0
-  "./curtu03.bib" 1685968459 2896 be02ec432fd6b431d686399040f25558 ""
+["bibtex math_bio"] 1703069893 "math_bio.aux" "math_bio.bbl" "math_bio" 1703069898 0
+  "./annot.bib" 1703069707 2854 08474504b4ff585fb1394f79910f9aad ""
   "./iopart-num.bst" 1166745370 34731 b50da6959a0e81fa7bc5adbc91ed7b73 ""
-  "MNS_report.aux" 1702565202 3058 34adae09ce1dd23d528552dc1c84bd11 "pdflatex"
+  "math_bio.aux" 1703069896 3056 c64ed7074b625cbf8ccdefb098b24658 "pdflatex"
   (generated)
-  "MNS_report.bbl"
-  "MNS_report.blg"
+  "math_bio.bbl"
+  "math_bio.blg"
   (rewritten before read)
-["pdflatex"] 1702565201 "/home/leander/OneDrive/master/YearTwo/MB/project/tex/MNS_report.tex" "MNS_report.pdf" "MNS_report" 1702565202 0
+["pdflatex"] 1703069894 "/home/leander/OneDrive/master/YearTwo/MB/project/tex/math_bio.tex" "math_bio.pdf" "math_bio" 1703069898 0
   "/etc/texmf/web2c/texmf.cnf" 1693317603 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/leander/OneDrive/master/YearTwo/MB/project/code/bif_beta_m0.pdf" 1702564596 59558 c847d02ff587110d3155237f09645407 ""
   "/home/leander/OneDrive/master/YearTwo/MB/project/code/change.pdf" 1702557555 11378 53860705f108760cbd9a9ccb82d2a312 ""
   "/home/leander/OneDrive/master/YearTwo/MB/project/code/fastest_mode.pdf" 1702564509 12822 7875faa4762541b967a17c8a9e2b7b39 ""
   "/home/leander/OneDrive/master/YearTwo/MB/project/code/kernel.pdf" 1702557037 8365 b7aaed1d21f7cf2828da32b6e96ecb5e ""
-  "/home/leander/OneDrive/master/YearTwo/MB/project/tex/MNS_report.tex" 1702565201 18301 7f718406f2a118280b2fc81a14a73ea7 ""
+  "/home/leander/OneDrive/master/YearTwo/MB/project/tex/math_bio.tex" 1703069830 18299 394b5017864f8f23d55b8eec976e891f ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -117,15 +117,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1676468108 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1693317780 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1693317798 7877485 77e17f8bf11021af66bea7ef66134673 ""
-  "MNS_report.aux" 1702565202 3058 34adae09ce1dd23d528552dc1c84bd11 "pdflatex"
-  "MNS_report.bbl" 1702557392 778 f4f0138f5be9f2a5e6ff16baef039023 "bibtex MNS_report"
-  "MNS_report.out" 1702565202 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "MNS_report.tex" 1702565201 18301 7f718406f2a118280b2fc81a14a73ea7 ""
   "jpconf.cls" 1174981130 35662 d0605ab1a2da0a561ae7bdd4b7c5c058 ""
   "jpconf11.clo" 1174980758 5275 3a7486c77011f8f7aaa64e0b0dba5338 ""
+  "math_bio.aux" 1703069896 3056 c64ed7074b625cbf8ccdefb098b24658 "pdflatex"
+  "math_bio.bbl" 1703069894 735 df97d0a64b8ae20b25bc81e3f63e00ea "bibtex math_bio"
+  "math_bio.out" 1703069896 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "math_bio.tex" 1703069830 18299 394b5017864f8f23d55b8eec976e891f ""
   (generated)
-  "MNS_report.aux"
-  "MNS_report.log"
-  "MNS_report.out"
-  "MNS_report.pdf"
+  "math_bio.aux"
+  "math_bio.log"
+  "math_bio.out"
+  "math_bio.pdf"
   (rewritten before read)
