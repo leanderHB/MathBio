@@ -3,50 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: math_bio.aux
 The style file: iopart-num.bst
 Database file #1: annot.bib
-Warning--I didn't find a database entry for "schnitzer"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Warning--empty note in pittir8159
-Warning--empty note in Curtu2004PatternFI
 Warning--empty note in LeanderGit
-You've used 3 entries,
+You've used 5 entries,
             3012 wiz_defined-function locations,
-            621 strings with 4581 characters,
-and the built_in function-call counts, 1150 in all, are:
-= -- 119
-> -- 15
-< -- 0
-+ -- 7
-- -- 4
-* -- 77
-:= -- 134
+            639 strings with 5094 characters,
+and the built_in function-call counts, 3514 in all, are:
+= -- 382
+> -- 44
+< -- 2
++ -- 22
+- -- 15
+* -- 242
+:= -- 388
 add.period$ -- 0
-call.type$ -- 3
-change.case$ -- 3
-chr.to.int$ -- 0
+call.type$ -- 5
+change.case$ -- 4
+chr.to.int$ -- 6
 cite$ -- 6
-duplicate$ -- 116
-empty$ -- 116
-format.name$ -- 5
-if$ -- 256
+duplicate$ -- 320
+empty$ -- 352
+format.name$ -- 12
+if$ -- 806
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 13
-newline$ -- 19
-num.names$ -- 3
-pop$ -- 27
+int.to.str$ -- 5
+missing$ -- 43
+newline$ -- 25
+num.names$ -- 5
+pop$ -- 89
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 12
+skip$ -- 39
 stack$ -- 0
-substring$ -- 132
-swap$ -- 30
+substring$ -- 507
+swap$ -- 95
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 10
-width$ -- 4
-write$ -- 32
-(There were 4 warnings)
+warning$ -- 1
+while$ -- 39
+width$ -- 6
+write$ -- 53
+(There was 1 warning)

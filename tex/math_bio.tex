@@ -42,12 +42,12 @@ I'll start by deriving the partial differential equation, which consists of a no
     \includegraphics[width=0.8\linewidth]{/home/leander/OneDrive/master/YearTwo/MB/project/code/change.pdf}
     \caption{Cartoon of the time derivative of $P(x,\vec u,t)$}
 \end{figure}
-The paper used a density-dependent diffusion term. This term can be derived by considering a continuous random walk model with density and flux given by:
+The paper used a density-dependent diffusion term. This term can be derived by considering a continuous random walk model, like in \cite{PhysRevE.48.2553} with density and flux given by:
 \[\begin{aligned}
 M(x,t) &= \oint_{S^n} P(x,\vec u,t)d\vec u\\
 \vec J(x,t) &=V(M) \oint_{S^n} P(x,\vec u,t)\vec ud\vec u
 \end{aligned}\]
-Here, $P(x,\vec u,t)$ is the probability density of finding a particle (mussel) at position $x$, at time $t$, going in direction $\vec u$. The model is quite similar to the one introduced in the lecture. By integrating over all directions, we find the density at some position and time, which we'll call $M$. By multiplying by $\vec u$ and integrating over all directions, we get the flux at some position and time. The integrals are over the unit sphere. The source \cite{schnitzer} has constant $V$, but we'd like to bake in the $M$-dependence. Note that $\Omega(n)$ is just the integral over the unit sphere, so that's the surface of the $n$-sphere, which has an explicit form. In our $3D$ case, this will of course just be $4\pi$. Now conservation of mass together with the dynamics of the system gives:
+Here, $P(x,\vec u,t)$ is the probability density of finding a particle (mussel) at position $x$, at time $t$, going in direction $\vec u$. The model is quite similar to the one introduced in the lecture. By integrating over all directions, we find the density at some position and time, which we'll call $M$. By multiplying by $\vec u$ and integrating over all directions, we get the flux at some position and time. The integrals are over the unit sphere. The source \cite{PhysRevE.48.2553} has constant $V$, but we'd like to bake in the $M$-dependence. Note that $\Omega(n)$ is just the integral over the unit sphere, so that's the surface of the $n$-sphere, which has an explicit form. In our $3D$ case, this will of course just be $4\pi$. Now conservation of mass together with the dynamics of the system gives:
 \[\begin{aligned}
 P_t(x,\vec u,t) &= -\nabla(V(M)P(x,\vec u,t))\cdot \vec u -\tau P(x,\vec u,t)+\frac{\tau }{\Omega(n)}\oint_{S^n}P(x,\vec u',t)d\vec u'\\
 &=\underbrace{-\nabla(VP)\cdot \vec u}_{\text{particles moving out}}-\underbrace{\tau P}_{\text{disaligning}}+\underbrace{\frac{\tau M}{\Omega(n)}}_{\text{aligning}}
@@ -88,7 +88,7 @@ Or if we write $f(M)=V(V+MV_M)$, we get $J  = -f(M)\nabla M$.
         
     \caption{Cartoon of interaction kernel}\label{kernel}
 \end{figure}
-Here I'll show that if we want to include non-local effects and stabilize the second order term, but want to stay in the land of differential equations, it makes sense to add a fourth order differential term. For this section, I'll assume that $M$ is $C^4$ at least and that the moments of $w$ exist.
+Here I'll show that if we want to include non-local effects and stabilize the second order term, but want to stay in the land of differential equations, it makes sense to add a fourth order differential term. This is mostly filling in details from \cite{murray2002mathematical}, page 408 and onwards. For this section, I'll assume that $M$ is $C^4$ at least and that the moments of $w$ exist.
 We'd like to keep non-local effects into account. To get an intuition for what kind of terms we can expect, consider the following integro-differential equation, which we will reduce to a differential equation:
 \[
 M_t(x',y') = \int_{X}w(x,y)M(x'-x,y'-y)dxdy
@@ -117,7 +117,7 @@ M_t = D\nabla \cdot \left(\frac{V(V+MV_M)}{n\tau} \nabla M -\kappa \nabla (\Delt
 Interestingly, $V>0$ (it's the velocity), so the zeros of $f$ are the same as the zeros of $V+MV_M$. Measurement has shown that it is statistically founded to pick a quadratic $V(M)$. So this is precisely what we'll assume. Then, as we have a quadratic determining the zeros in the biologically well-defined regime $V>0$, we get at most two zeros. \\
 We'd like to rescale the problem to make it look similar to the Cahn-Hilliard equation, and we do this by setting $m = \sqrt\frac{a}{c}M$ and $\beta = \frac{b}{\sqrt{ac}}$, then we get:
 \[\begin{aligned}
- f(M)&=\frac{1}{n\tau } \left(a \sqrt\frac{c}{a}^2 m-\beta\sqrt{ac}\sqrt\frac{c}{a}m+c\right)\left( 3a \sqrt\frac{c}{a}^2 m-2\beta\sqrt{ac}\sqrt\frac{c}{a}m+c\right)\\
+ f(M)&=\frac{1}{n\tau } \left(a \sqrt\frac{c}{a}^2 m^2-\beta\sqrt{ac}\sqrt\frac{c}{a}m+c\right)\left( 3a \sqrt\frac{c}{a}^2 m-2\beta\sqrt{ac}\sqrt\frac{c}{a}m+c\right)\\
 &=\frac{c^2}{n\tau}(m^2-\beta m+1)(3m^2-2\beta m+1):= \frac{c^2}{n\tau }g(m)
 \end{aligned}\]
 This imposes that $\beta^2<4$, since the first term $m^2-\beta m+1>0$, so the discriminant $\beta^2-4$ should be smaller than $0$, to not have $V(m)=0$ anywhere. Now all the terms in the differential equation have one unscaled $M$ term left, so we can rescale all those simultaneously to get:
@@ -137,8 +137,10 @@ does just that, since $\nabla P=P_M\nabla M = g(m)\nabla M$. Then we can write:
 \[
 m_t = D_0\nabla^2(P(m)-\kappa_1\Delta m)
 \]
-At this point, we've come quite close to the form of the Cahn-Hilliard equation. The difference is that we have a quintic, while CH requires a cubic. It turns out this doesn't matter too much, as long as $P$ looks like a double well potential: with 2 minima, and 1 maximum, which then is in the middle. By the way we constructed $g(m)$, and thereby $P(m)$, we know that it has $3$ zeroes, therefore $P$ will have the required 3 zeroes.
+At this point, we've come quite close to the form of the Cahn-Hilliard equation. The difference is that we have a quintic, while CH requires a cubic. It turns out this doesn't matter too much, as long as $P$ looks like the derivative of a double well potential: with 2 minima, and 1 maximum, which then is in the middle. By the way we constructed $g(m)$, and thereby $P(m)$, we know that it has $3$ zeroes, therefore $P$ will have the required 3 zeroes.
 $Q$, the antiderivative of $P$ or the free energy/potential, will therefore have $3$ extrema. For large $m$, we get $Q=\int Pdm\sim \frac1{10}m^6$, which indicates that we will have a $\bigcup$ shaped function if we zoom out enough. Then necesarily, we get $2$ minima, and 1 maximum (actually it could also have two saddles and a minimum, but we can choose $C$ such that this never happens).This is the condition for Cahn-Hilliard, and therefore, we can use the existence results from [boek over CH] to see that we indeed get a solution. 
+{\color{red} Doe dit eens wat netter jongeman}
+
 
 
 \section{Linear stability analysis}
@@ -205,10 +207,66 @@ Plotting these gives the bifurcation diagram in figure \ref{bif_beta_m0}.
 Where the paper says that patterns emerge when $\sqrt 3<\beta<2$ is satisfied, this is a little bit inaccurate, as also above $\beta=2$ patterns emerge, it's just that those values are non-biological, as $\beta>2$ implies negative velocity for some density of mussels (whatever that may mean). 
 
 \section{Discussion}
-In general, the paper was very readible, the supplementary material was good, and I could find very little errors. A small error is in the bifurcation diagram in figure $S1$, where the axis label says we're talking about $M$, while this should be the scaled and dimensionless $m$. \\
+In general, the paper was very readible, the supplementary material was good, and I could find very little errors. A small error is in the bifurcation diagram in figure $S1$, where the axis label says we're talking about $M$, while this should be the scaled and dimensionless $m$. And conversely, in figure 1A, the xlabel says rescaled density, while plotting the graph myself seems to indicate this is the unscaled version.
+\subsection*{Figure 1C in the paper}
+I think a couple of things go wrong in this figure, and its caption. First of all, the caption mentions:
+\begin{quotation}
+    (C) Relation between movement speed and density within a series of mussels clusters (mussel density is rescaled, where 128 equals to 1). The blue line describes the rescaled second-order polynomial ﬁt with Eq. 1. The red line depicts the effective diffusion $g(m)$ of mussels as a function of the local densities according to the diffusion-drift theory. The open circles show the original experiment data, and the solid squares
+represent the average speed of each group.
+\end{quotation}
+The way I parse this text, is that we're looking at the rescaled speed and effective diffusion. The axis label agrees with this. However, when I plot the non-rescaled speed $V(M)$ (like in equation 1) and $f(M)$, see supporting text, or start of this report, I get something that seems to be on the right scale. To better test this, I extracted the data from the plot with an online tool \cite{Rohatgi2022} and plotted this data against the speed $V(M)$ and effective diffusion $f(M)$, and aginst their rescaled counterparts $g(m)$ and $v(m)$.
+\[f(M) = V\left(V+M\frac{dV}{dM}\right)\quad,\quad V(M)=aM^2-bM+c\]
+\[g(m)=(m^2-\beta m+1)(3m^2-2\beta m+1)\quad ,\quad v(m)=m^2-\beta m+1\]
 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}\centering
+        \includegraphics[width=1\linewidth]{/home/leander/OneDrive/master/YearTwo/MB/project/tex/not_rescaled.pdf}
 
+        % \caption{}\label{fastest_mode}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.3\textwidth}\centering
+        \includegraphics[width=1\linewidth]{/home/leander/OneDrive/master/YearTwo/MB/project/code/comparison2.pdf}
+
+        % \caption{}\label{fastest_mode}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.3\textwidth}\centering
+        \includegraphics[width=1\linewidth]{/home/leander/OneDrive/master/YearTwo/MB/project/code/comparison.pdf}
+        
+        % \caption{}\label{bif_beta_m0}
+    \end{subfigure}
+    \caption{(left) Figure 1C of \cite{doi:10.1073/pnas.1222339110} (middle) Extracted data from the figure on the left, with the $\mathcal V(m)$ and $g(m)$ overlayed. (right) Extracted data from the figure on the left, with $V(M)$ and $f(M)$ overlayed.}\label{comparison}
+\end{figure}
+I would say that's a pretty nice fit with the unscaled $f(M)$ and $V(M)$, so I think they switched up their figure somehow. Besides this, they mention open circles and filled squares, but all I can detect in this image is filled circles. 
+
+\subsection*{Lack of linear stability analysis}
+The paper hasn't done linear stability analysis, which is a bit weird to me, as it's a simple way to show that at least the system doesn't stay in a uniform state for certain combinations of parameters. Actually, the paper never proves anything about where patterns emerge, but refer to general theory from physics to state that our equation looks similar enough that similar patterns should emerge, and combines this with the intuition that effective negative diffusion leads to aggregation. I find this a little surprising. My argument would be something along the lines of: \\
+The Cahn Hilliard equation, with initial conditions in $H^2$, has a unique solution in $H^2$, this space is compactly embedded in $L^2$, and the uniform state is a repellor for the values shown in figure \ref{bif_beta_m0}, therefore there is a dual non-uniform attractor, which the initial conditions tend to for large time. As stated, this is not uniform, hence must be patterned. 
+\subsection*{Figure S1}
+This is a weird figure, it says the $y$-axis is the unscaled density $M$, but it also seems to overlap perfectly with the roots of $g(m)$, which is rescaled, see figure \ref{overlap_preffered}, where I used \cite{Rohatgi2022} to extract the data.
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}\centering
+        \includegraphics[width=1\linewidth]{/home/leander/OneDrive/master/YearTwo/MB/project/code/bif_beta_m0_preffered_states.pdf}
+
+        % \caption{}\label{fastest_mode}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.5\textwidth}\centering
+        \includegraphics[width=1\linewidth]{preffered_states.pdf}
+        
+    \end{subfigure}
+    \caption{(left) Overlapped data from the right image on top of linear stability image (right) figure S1}\label{overlap_preffered}
+\end{figure}
+
+I don't know if I agree that the roots of $g(m)$ are the preffered states, simulations seem to show that even slightly inside the pattern regime, the density tears apart beyond these preferred states. Also their images show values outside these preferred states. 
+% I think at least one of these figures has an error. If the preferred, non-rescaled states are indeed around 0.4 and 0.9 for the measured $\beta$, then you'd expect the blobs to hang out around these densities in the simulations. The simulations however, are rescaled, as the caption says we're using dimensionless m. $m$ is a factor $\sqrt{a/b}\approx 1.9$ larger than $M$, so this is weird, as then you'd say stable states are around $0.8$ and $1.6$, which the color bar shows is not the case. My guess is that we're looking at non-rescaled simulations, and rescaled $m$ in figure S1. Figure S1 is exactly overlapping with the roots of $g(m)$, so that's the reason I think it might be that we're looking at. My earlier linear stability analysis shows that at these roots, we start getting patterns. I don't know if I agree this has anything to do with a "preferred state". I don't know how much my simulations are worth, but they seem to look at least slightly similar to the ones the paper shows, and there's little evidence of the preferred states being close to what the paper says, their own simulations also show this. Also, my rescaled simulations give stable values of $0.3$ and $1.1$, which seems reasonable if we look at where $g(m)$ starts going up a lot. All the images in the paper are claimed to be dimensionless, but the colorbar on the side indicates that their preffered states are around $0.15$ and $0.7$, which is awfully close to what I get when I look at what my simulations would say is stable for the unscaled $M$. 
+% They do provide a "bifurcation" diagram for one value of $\beta$, and changing the average density, and comparing simulations with real life mussels. Their other bifurcation diagram in the supporting information tells us what the preferred states are, which builds on a lot of assumptions that aren't explained, but as far as I can understand, just are the zeros of $g(m)$. The weird thing here is that they say there's a preffered state below $\beta=\sqrt 3$ as well, I guess this is the minimum of $g(m)$, but as far as I understand, below this point there is little to be preffered, as the mussels stay in a uniform state. 
+\subsection*{Polynomial Cahn Hilliard doesn't need to stay above 0}
+While it seems the diffusion away from the zero density state seems to be quite strong, there is no reason the model needs to keep mussel densities that are positive. The physics Cahn Hilliard equation pops up when looking at the entropy of mixing, and this gives logarithms that ensure the equation to keep values inside an interval. It doesn't seem to be an issue in the simulations however. 
+\subsection*{Weird value for $\beta$ in comparison}
+The paper compares how the maximum density changes as a fucntion of the average density, and does this by comparing simulation to real life. However, the $\beta$ they choose to simulate with is different than the one they measured. This is a bit weird. I think this is just an error, as linear stability analysis shows that the image shouldn't look too different when using $\beta = 1.8339$. 
 \section{Conclusion}
+All in all, this was a very nice paper to read. The supplementary material gave enough clues to quickly fill in the gaps. I think the proposed mechanism for pattern formation is very cool, and it seems a lot of people thought the same, seeing the amount of citations this paper has. I feel the paper slacks a bit on precision when it comes to scales, but this is no big problem for a theoretical paper. I doubt the authors really wanted to study mussels, but just found this to be an interesting case study to show this behaviour in practice, given the relatively quick timescale of pattern formation. 
 
 \section*{References}
 \bibliographystyle{iopart-num}
