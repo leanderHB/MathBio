@@ -1,0 +1,22 @@
+\providecommand{\newblock}{}
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+% Bibliography created with iopart-num v2.0
+% /biblio/bibtex/contrib/iopart-num
+
+\bibitem{pittir8159}
+Curtu R 2003 Waves and oscillations in model neuronal networks
+  \urlprefix\url{http://d-scholarship.pitt.edu/8159/}
+
+\bibitem{Curtu2004PatternFI}
+Curtu R and Ermentrout B 2004 Pattern formation in a network of excitatory and
+  inhibitory cells with adaptation
+
+\bibitem{LeanderGit}
+Post L 2023 Jupyter notebook used to review the paper
+  \urlprefix\url{https://github.com/leanderHB/MNS-project-2023-Leander-Post}
+
+\end{thebibliography}
